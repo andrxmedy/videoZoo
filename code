@@ -1,0 +1,13 @@
+import SwiftUI
+import AVKit
+
+struct ContentView: View {
+    var body: some View {
+        VideoPlayer(player: AVPlayer(url: Bundle.main.url(forResource: "video", withExtension: "mp4")!))
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                // Inicia a reprodução automaticamente
+                AVPlayerViewController().player?.play()
+            }
+    }
+}
